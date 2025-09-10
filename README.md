@@ -8,5 +8,5 @@ Desafio Outsera - Teste automatizado de API
 - Executar o comando <b>"npm run report:allure"</b> para abrir o dashboard allure
 
 - Preview do último relatório de execução gerado
-  <img src="https://github.com/jeferQA/outsera_challenge_api/blob/main/allure-preview.png">
+  <img src="https://github.com/jeferQA/outsera_challenge_api/blob/main/allure_preview.png">
   

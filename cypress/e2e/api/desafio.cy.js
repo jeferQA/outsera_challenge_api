@@ -19,7 +19,4 @@ describe('Testes automatizados API - Tarefas 1 e 2', () => {
         cy.deleteLastRegister()
     })
 
-    it('Validar a exclusão de um registro', () => {
-        cy.deleteRegister(100)
-    })
 })

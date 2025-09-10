@@ -1,7 +1,7 @@
 Cypress.Commands.add('insertRegister', (name, phone, address) => {
     cy.request({
         method: 'POST',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo',
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people',
         body: {
             "name": name,
             "phone": phone,
@@ -18,7 +18,7 @@ Cypress.Commands.add('insertRegister', (name, phone, address) => {
 Cypress.Commands.add('alterRegisterName', (id, name) => {
     cy.request({
         method: 'PUT',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo/'+ id,
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people/'+ id,
         body: {
             "name": name,
         }
@@ -32,7 +32,7 @@ Cypress.Commands.add('alterRegisterName', (id, name) => {
 Cypress.Commands.add('alterRegisterPhone', (id, phone) => {
     cy.request({
         method: 'PUT',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo/'+ id,
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people/'+ id,
         body: {
             "phone": phone
         }
@@ -46,7 +46,7 @@ Cypress.Commands.add('alterRegisterPhone', (id, phone) => {
 Cypress.Commands.add('alterRegisterAddress', (id, address) => {
     cy.request({
         method: 'PUT',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo/'+ id,
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people/'+ id,
         body: {
             "address": address
         }
@@ -61,12 +61,12 @@ Cypress.Commands.add('deleteLastRegister', () => {
     var listLength
     cy.request({
         method: 'GET',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo',
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people',
     }).then((resp) =>{
         listLength = resp.body.length
         cy.request({
             method: 'DELETE',
-            url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo/'+listLength,
+            url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people/'+listLength,
         }).then((resp) =>{
             expect(resp.status).to.eq(200)
         })
@@ -76,7 +76,7 @@ Cypress.Commands.add('deleteLastRegister', () => {
 Cypress.Commands.add('deleteRegister', (id) => {
     cy.request({
         method: 'DELETE',
-        url: 'https://6734f1905995834c8a917363.mockapi.io/outsera_challenge/Exemplo/'+id,
+        url: 'https://68c1452698c818a694014623.mockapi.io/api/v1/people/'+id,
     }).then((resp) =>{
         expect(resp.status).to.eq(200)
     })

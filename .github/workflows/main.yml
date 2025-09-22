@@ -1,0 +1,40 @@
+name: Run Cypress API Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:   # 🔹 permite disparo manual pelo GitHub
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests (API)
+        run: npx cypress run --browser chrome --headless
+
+      # Se quiser salvar os resultados do Allure
+      - name: Generate Allure report
+        if: always()
+        run: |
+          npm run report:allure || echo "Falha ao gerar relatório"
+
+      - name: Upload Allure results as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results

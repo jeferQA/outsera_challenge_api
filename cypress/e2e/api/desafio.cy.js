@@ -19,4 +19,8 @@ describe('Testes automatizados API - Tarefas 1 e 2', () => {
         cy.deleteLastRegister()
     })
 
+    it('Validar cenário de ID não encontrado', () => {
+        cy.deleteRegisterNull(2000)
+    })
+
 })

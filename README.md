@@ -76,5 +76,5 @@ npm run browser:chrome
 npm run report:allure
 ```
 - Esse projeto esta configurado para executar os testes no workflow do github, basta acessar aqui no repositório do projeto a página <b>Actions -> Run Cypress API tests -> opção Run workflow</b>
-```
+
 
